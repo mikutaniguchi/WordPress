@@ -5,8 +5,15 @@
 
 <div class="pickup-items">
 
-<?php $pickup_ids = array( 59, 61, 62 ); // ピックアップする記事の投稿idを指定する ?>
-<?php foreach ( $pickup_ids as $id ) : ?>
+<?php
+$pickup_posts = get_posts( array(
+'post_type' => 'post', // 投稿タイプ
+'posts_per_page' => '3', // 3件取得
+'tag' => 'pickup', // pickupタグがついたものを
+'orderby' => 'DESC', // 新しい順に
+) );
+?>
+<?php foreach ( $pickup_posts as $post ) : setup_postdata($post); ?>
 
 <a href="<?php echo esc_url( get_permalink( $id ) ); ?>" class="pickup-item">
 <div class="pickup-item-img">
