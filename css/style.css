@@ -2532,6 +2532,8 @@ body.m_fixed_sns {
 }
 
 }
-
+.twitter-timeline{
+	border:3px solid #c3c3c3;
+}
 
 /*# sourceMappingURL=style.css.map */
