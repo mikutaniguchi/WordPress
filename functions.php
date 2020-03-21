@@ -124,7 +124,6 @@ echo esc_html( $this_categories[0]->cat_name );
 }
 
 
-
 /**
 * タグ取得
 *
@@ -165,7 +164,6 @@ array(
 );
 }
 add_action( 'widgets_init', 'my_widget_init' );
-
 
 
 /**
@@ -251,3 +249,17 @@ if ( $wp_query->is_search() && $wp_query->is_main_query() && !is_admin() ){
 }
 
 add_filter('posts_search','my_posts_search', 10, 2);
+
+
+/**
+* ボタンのショートコード
+*
+* @param array $atts ショートコードの引数.
+* @param string $content ショートコードのコンテンツ.
+* @return string ボタンのHTMLタグ.
+* @codex https://wpdocs.osdn.jp/%E9%96%A2%E6%95%B0%E3%83%AA%E3%83%95%E3%82%A1%E3%83%AC%E3%83%B3%E3%82%B9/add_shortcode
+*/
+function my_shortcode( $atts, $content = '' ) {
+return '<div class="entry-btn"><a class="btn" href="' . $atts['link'] . '">' . $content . '</a></div><!-- /entry-btn -->';
+}
+add_shortcode( 'btn', 'my_shortcode' );
