@@ -71,6 +71,7 @@ array(
 )
 );
 ?>
+<?php echo do_shortcode('[btn link="http://miku.local/"]お問い合わせはこちら[/btn]'); ?>
 </div><!-- /entry-body -->
 
 
